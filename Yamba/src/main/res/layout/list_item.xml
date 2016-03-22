@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="NESN"
+            android:id="@+id/text_user"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:textStyle="bold"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Less than 5 minutes ago"
+            android:id="@+id/text_created_at"
+            android:layout_alignBottom="@+id/text_user"
+            android:layout_alignParentRight="true"
+            />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:autoLink="all"
+            android:text="Tom Brady Appears at Patriots Practice Thursday, Status for Friday's Game Still Uncertain http://wp.me/p2AlCJ-UrU"
+            android:id="@+id/text_status_text"
+            android:layout_below="@+id/text_created_at"
+            android:layout_alignParentLeft="true"/>
+</RelativeLayout>

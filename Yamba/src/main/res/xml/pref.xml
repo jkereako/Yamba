@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference android:key="username"
+                        android:title="@string/pref_title_username"
+                        android:summary="@string/pref_summary_username"/>
+
+    <EditTextPreference android:key="password"
+                        android:title="@string/pref_title_password"
+                        android:inputType="textPassword"
+                        android:password="true"
+                        android:summary="@string/pref_summary_password"/>
+
+    <EditTextPreference android:key="api_url"
+                        android:title="@string/pref_title_api_url"
+                        android:inputType="textUri"
+                        android:summary="@string/pref_summary_api_url"/>
+
+    <ListPreference android:key="refresh_interval"
+                    android:title="@string/pref_title_refresh_interval"
+                    android:summary="@string/pref_summary_refresh_interval"
+                    android:entries="@array/pref_refresh_interval_names"
+                    android:entryValues="@array/pref_refresh_interval_values"/>
+
+</PreferenceScreen>

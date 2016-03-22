@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jkereako.yamba"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <application android:name="com.jkereako.yamba.YambaApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.jkereako.yamba.StatusActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <provider
+                android:name="com.jkereako.yamba.StatusProvider"
+                android:authorities="com.jkereako.yamba.provider">
+                <!--An authority is required only if you want to share data with another app-->
+        </provider>
+
+        <!--Declare the preferences activity, services and the receiver -->
+        <activity android:name="com.jkereako.yamba.SettingsActivity" android:label="@string/settings"/>
+        <activity
+                android:name="com.jkereako.yamba.TimelineActivity"
+                android:label="Yamba Timeline">
+            <intent-filter>
+                <!--This means this activity, StatusActivity, is the entry-point for the app-->
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.jkereako.yamba.action.TEST_BROADCAST"/>
+                <action android:name="com.jkereako.yamba.action.REFRESH_TIMELINE"/>
+                <!--This means that this activity ought to be added to Android's app drawer-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service android:name="com.jkereako.yamba.UpdaterService"/>
+        <service android:name="com.jkereako.yamba.RefreshService"/>
+        <receiver android:name="com.jkereako.yamba.RefreshScheduleReceiver">
+            <!--An intent filter tells Android to broadcast a message when a specified action is executed-->
+            <intent-filter>
+                <!--Activate the RefreshScheduleReceiver class for the following broadcast messages -->
+                <action android:name="com.jkereako.yamba.action.TEST_BROADCAST"/>
+                <action android:name="com.jkereako.yamba.action.REFRESH_ALARM"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

@@ -1,4 +1,5 @@
 # Yamba
+Yamba is a Twitter clone. It asynchronously posts Tweets to a server and displays them.
 
 This is a "follow along coding" project for the [Marakana video series][marakana] by Marko Gargenta.
 
